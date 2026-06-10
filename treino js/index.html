@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Conversor de moedas</title>
+	<link rel="stylesheet" href="/styles.css/styles.css">
+</head>
+<body>
+
+	<header id="cabecalho">
+		<img src="/img/pngegg.png" alt="" class="img">
+		<h1 id="title">
+			Conversor de Moedas
+		</h1>
+	</header>
+
+	<main id="corpo">
+
+		<div class="selector">
+
+			<input type="number" id="valor" placeholder="Digite um valor">
+
+			<div class="moedas">
+
+				<select id="de">
+					<option value="EUR">EURO</option>
+					<option value="USD">DOLAR</option>
+					<option value="BRL">REAL</option>
+				</select>
+
+				<button id="inverter">⇄</button>
+
+				<select id="para">
+					<option value="EUR">EURO</option>
+					<option value="USD">DOLAR</option>
+					<option value="BRL">REAL</option>
+				</select>
+
+				<button id="convert">Converter</button>
+
+			</div>
+
+			<p id="resultado">RESULTADO</p>
+
+		</div>
+		<div id="localstorege">
+			<h2> HISTÓRICO</h2>
+			<div  id="historico"></div>
+
+		</div>
+
+	</main>
+
+	<footer id="rodape"></footer>
+
+	<script src="script.js"></script>
+
+</body>
+</html>
