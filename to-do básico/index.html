@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tarefas</title>
+    
+    <link 
+    rel="stylesheet" 
+    href="/to-do básico/assets/styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
+
+    <section id="title">
+        <h1> Minha Lista de Tarefas</h1>
+        <h3> Organize seu dia, uma tarefa de cada vez.</h3>
+    </section>
     <section id="container">
+
         <div id="to-do">
+            <div id="task-form">
+                <input type="text" name="" id="input-task" placeholder="Digite uma nova tarefa...">
 
-            <input 
-            type="text" 
-            name="" 
-            id="input-task" 
-            placeholder="Qual sua tarefa?"
-            >
+
+                <button id="adc">
+                    + Adicionar
+                </button>
+            </div>
             <p id="error"></p>
-
-            <button id="adc">
-            Adicionar
-            </button>
 
             <ul id="list"></ul>
         </div>
     </section>
     <script src="/to-do básico/assets/script.js"></script>
 </body>
+
 </html>

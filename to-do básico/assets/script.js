@@ -1,46 +1,66 @@
-/*Parte inicial*/
-const inputTask = document.getElementById('input-task')
-const addTaskButton = document.getElementById('adc')
-const list = document.getElementById('list')
-const error = document.getElementById('error')
+/* Parte inicial */
+const inputTask = document.getElementById('input-task');
+const addTaskButton = document.getElementById('adc');
+const list = document.getElementById('list');
+const error = document.getElementById('error');
 
-/*complementos*/
+/* Limpa erro ao digitar */
+inputTask.addEventListener('input', () => {
+    error.innerText = '';
+});
 
-addTaskButton.addEventListener('click', () => {
+/* Função principal */
+function createTask() {
 
-    /*Marcações das li*/
-    const deleteButton = document.createElement('button')
-    deleteButton.innerText = 'Deletar'
-    const check = document.createElement('input')
-    check.type = 'checkbox'
+    const taskValue = inputTask.value.trim();
 
-    /*função básica*/
-    let digitei = inputTask.value;
-    const li = document.createElement('li')
-
-    if (digitei === "") {
-        error.innerText = 'Digite uma tarefa válida'
-        error.style.color = 'red'
-        return
+    if (taskValue === '') {
+        error.innerText = 'Digite uma tarefa válida';
+        error.style.color = 'red';
+        return;
     }
-    error.innerText = ''
 
+    /* Criação dos elementos */
+    const li = document.createElement('li');
 
-    li.innerText = digitei;
-    list.appendChild(li)
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
 
-    /*Marcações das li*/
-    li.appendChild(check)
-    li.appendChild(deleteButton)
+    const taskText = document.createElement('span');
+    taskText.innerText = taskValue;
+    taskText.classList.add('task-text');
 
-    /*Funções de edição*/
-    
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+
+    /* Montagem */
+    li.appendChild(checkbox);
+    li.appendChild(taskText);
+    li.appendChild(deleteButton);
+
+    list.appendChild(li);
+
+    /* Limpa input */
+    inputTask.value = '';
+    inputTask.focus();
+
+    /* Deletar */
     deleteButton.addEventListener('click', () => {
-    list.removeChild(li)
-    })
+        li.remove();
+    });
 
-    
-})
+    /* Concluir tarefa */
+    checkbox.addEventListener('change', () => {
+        taskText.classList.toggle('completed');
+    });
+}
 
+/* Clique no botão */
+addTaskButton.addEventListener('click', createTask);
 
-
+/* Enter */
+inputTask.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        createTask();
+    }
+});

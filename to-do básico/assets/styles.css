@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #6366F1;
+    --secondary-color: #22C55E;
+
+    --danger-color: #EF4444;
+    --background-color: #F3F4F6;
+
+    --card-color: #FFFFFF;
+    --text-color: #1F2937;
+
+    --radius: 12px;
+    --shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--background-color);
+}
+#title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+#to-do {
+    display: flex;
+    flex-direction: column;
+
+
+    max-width: 700px;
+    margin: 40px auto;
+
+    padding: 20px;
+
+    background-color: var(--card-color);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+#task-form{
+    display: flex;
+    gap: 10px;
+}
+#input-task {
+    flex: 1;
+
+    padding: 12px;
+
+    border-radius: var(--radius);
+    border: 1px solid #ddd;
+}
+#adc {
+    background-color: var(--primary-color);
+    color: white;
+
+    border: none;
+    border-radius: var(--radius);
+
+    padding: 12px 20px;
+
+    cursor: pointer;
+}
+li { 
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    list-style: none;
+
+    padding: 12px 20px;
+    margin: 10px 0;
+
+    background-color: var(--card-color);
+
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+li button {
+    border: none;
+    background: none;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    color: var(--danger-color);
+}
+.task-text {
+    flex: 1;
+}   
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
