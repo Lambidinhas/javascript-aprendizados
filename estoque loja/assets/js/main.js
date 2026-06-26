@@ -33,3 +33,45 @@ const total = produtos.reduce ((soma, produtos) =>{
 console.log(eletronics)
 console.log(discount)
 console.log(total)
+
+console.log("--------------novo exercio------------------------")
+
+const vendas = [
+    { cliente: "Huguinho", valor: 500, cupom: false },
+    { cliente: "Zezinho", valor: 80, cupom: true },
+    { cliente: "Luizinho", valor: 200, cupom: false },
+    { cliente: "Pato Donald", valor: 1500, cupom: true },
+    { cliente: "Margarida", valor: 300, cupom: false }
+];
+
+// 1. Filtre apenas as vendas acima de 100 reais.
+// 2. Para essas vendas filtradas, aplique um desconto de 50 reais apenas se o cliente tiver cupom (cupom: true).
+// 3. No final, some o valor total de todas essas vendas processadas.
+
+const overHundred = vendas.filter ((vendas) =>{
+    return vendas.valor >= 100;
+});
+const underHundred = vendas.filter ((vendas) => {
+    return vendas.valor < 100;
+})
+
+const afterDiscount = vendas
+    .filter(venda => venda.valor >= 100)
+    .map(venda => {
+        return {
+            ...venda,
+            valor: venda.valor - 50
+        };
+    });
+
+
+const totalAfter = [...afterDiscount, ...underHundred];
+
+const totalVendas = totalAfter.reduce((acumulador, venda) =>{
+    return acumulador + venda.valor;
+}, 0)
+   
+    
+console.log(overHundred)
+console.log(afterDiscount)
+console.log(totalVendas)
